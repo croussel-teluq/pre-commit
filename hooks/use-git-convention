@@ -26,18 +26,15 @@ SHA1=$3
 #
 # Fonction pour vérifier le format du message de commit
 check_commit_message() {
-    local commit_msg=$(head -n 1 "$COMMIT_MSG_FILE")
+    local commit_msg=$(head -n 1 "$1")
     if [[ ! $commit_msg =~ ^[a-z]+(\(.*\))?[\!\?]?:\ .+ ]]; then
-        echo "Le message de commit ne respecte pas <type>[optional scope]: <description>'"
+        echo "Le message de commit ne respecte pas le format <type>[optional scope]: <description>"
         exit 1
     fi
 }
 
-/usr/bin/perl -i.bak -ne 'print unless(m/^. Please enter the commit message/..m/^#$/)' "$COMMIT_MSG_FILE"
-
-# Vérifiez le format du message de commit
-check_commit_message
-
+# Appel de la fonction avec le fichier de message de commit
+check_commit_message "$1"
 # case "$COMMIT_SOURCE,$SHA1" in
 #  ,|template,)
 #    /usr/bin/perl -i.bak -pe '
