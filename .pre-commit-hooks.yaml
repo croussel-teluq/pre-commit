@@ -1,5 +1,5 @@
 -   id: use-git-convention
     name: use-git-convention
-    entry: bash hooks/use-git-convention
+    entry: bash hooks/use-git-convention.sh
     language: system
     stages: [prepare-commit-msg]
