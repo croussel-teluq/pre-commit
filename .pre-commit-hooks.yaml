@@ -1,6 +1,6 @@
 -   id: use-git-convention
     name: use-git-convention
-    entry: hooks/use-git-convention
+    entry: bash hooks/use-git-convention.sh
     language: script
     types: [shell, executable]
     stages: [prepare-commit-msg]
